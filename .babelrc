@@ -1,0 +1,17 @@
+{
+  "plugins": [
+    "ramda",
+    "react-hot-loader/babel",
+    "transform-decorators-legacy",
+    ["babel-plugin-root-import", { "rootPathSuffix": "lib" }]
+  ],
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": ["last 2 versions", "safari >= 7"]
+      }
+    }],
+    "react",
+    "stage-0"
+  ]
+}

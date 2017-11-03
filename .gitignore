@@ -1,0 +1,18 @@
+out/
+build/
+node_modules/
+npm-debug.log
+# idea
+*.ipr
+*.iws
+.idea/
+*.iml
+.vscode/
+
+.DS_Store
+
+.visualreview-runid.pid
+
+jsconfig.json
+
+yarn-error.log

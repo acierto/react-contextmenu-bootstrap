@@ -12,11 +12,16 @@ export default class DemoApp extends Component {
         this.state = {};
     }
 
+    handleActionHandler = (item) => {
+        console.log('Selected' , item);
+    };
+
     handleOnClick = () => this.setState({items});
 
     render() {
         return <div>
             <ContextMenu
+                actionHandler={this.handleActionHandler}
                 filterFlattenSubMenus={filterFlattenSubMenus}
                 itemSelected={R.F}
                 hideContextMenu={R.F}

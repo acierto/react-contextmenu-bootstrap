@@ -6,6 +6,6 @@ function randomInt(low, high) {
 
 const argv = require('yargs').argv;
 
-export const appPort = 3000;
+export const appPort = 5000;
 
 export const appHost = os.hostname();

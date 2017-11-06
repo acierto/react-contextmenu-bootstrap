@@ -2,7 +2,7 @@ import R from 'ramda';
 import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
 import webpack from 'webpack';
 import {entryConfig, exposeLoadersConfig, rulesConfig, pluginsConfig, outputConfig} from './webpack.config.common';
-import {appPort} from "../../utils/connection";
+import {appHost, appPort} from "../../utils/connection";
 
 export default {
     devServer: {
@@ -13,7 +13,7 @@ export default {
     },
     entry: R.evolve({
         main: R.concat([
-            `webpack-dev-server/client?http://localhost:${appPort}`,
+            `webpack-dev-server/client?http://${appHost}:${appPort}`,
             'react-dom/test-utils',
             'bean'
         ])

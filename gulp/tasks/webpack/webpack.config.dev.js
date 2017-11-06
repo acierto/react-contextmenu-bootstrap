@@ -1,7 +1,7 @@
 import R from 'ramda';
 import webpack from 'webpack';
 import {entryConfig, exposeLoadersConfig, rulesConfig, pluginsConfig, outputConfig} from './webpack.config.common';
-import {appPort} from '../../utils/connection';
+import {appHost, appPort} from '../../utils/connection';
 
 export default {
     devServer: {
@@ -14,7 +14,7 @@ export default {
     entry: R.evolve({
         main: R.concat([
             'react-hot-loader/patch',
-            `webpack-dev-server/client?http://localhost:${appPort}`,
+            `webpack-dev-server/client?http://${appHost}:${appPort}`,
             'webpack/hot/only-dev-server',
             'react-dom/test-utils',
             'bean',

@@ -1,8 +1,8 @@
 import R from 'ramda';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import {demoDir, distDir, srcDir} from '../../utils/paths';
-import {dependencies} from '../../../../package.json';
+import {demoDir, distDir, projectDist, srcDir} from '../../utils/paths';
+import {dependencies} from '../../../package.json';
 
 export const exposeLoadersConfig = [
     {
@@ -97,7 +97,7 @@ export const pluginsConfig = [
 ];
 
 export const entryConfig = {
-    main: [`./${srcDir}/index.js`],
+    main: [`./${demoDir}/index.js`],
     vendor: R.pipe(
         R.keys,
         R.concat([
@@ -109,6 +109,6 @@ export const entryConfig = {
 
 export const outputConfig = {
     filename: `${distDir}/bundle-[hash].js`,
-    path: distDir,
+    path: projectDist,
     publicPath: ''
 };

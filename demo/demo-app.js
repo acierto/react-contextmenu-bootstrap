@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import {items} from './menu-items';
 import {filterFlattenSubMenus} from '../lib/context-menu-service';
 import ContextMenu from '../lib/contextmenu-component';
+import 'bootstrap';
 
 export default class DemoApp extends Component {
 

@@ -1,5 +1,7 @@
 import R from 'ramda';
 import React, {Component} from 'react';
+import {Button, ButtonToolbar} from 'react-bootstrap';
+import ReactJson from 'react-json-view';
 import {items} from './menu-items';
 import {filterFlattenSubMenus} from '../lib/context-menu-service';
 import ContextMenu from '../lib/contextmenu-component';
@@ -13,12 +15,13 @@ export default class DemoApp extends Component {
     }
 
     handleActionHandler = (item) => {
-        console.log('Selected' , item);
+        this.setState({selectedItem: item});
     };
 
     handleOnClick = () => this.setState({items});
 
     render() {
+        const {selectedItem} = this.state;
         return <div>
             <ContextMenu
                 actionHandler={this.handleActionHandler}
@@ -29,12 +32,20 @@ export default class DemoApp extends Component {
                 items={items}
                 target={document.getElementById('show-context-menu')}
             />
-            <button
-                id="show-context-menu"
-                onClick={this.handleOnClick}
-                type="button">
-                Show Context Menu
-            </button>
+
+            <ButtonToolbar>
+                <Button
+                    bsStyle="primary"
+                    id="show-context-menu"
+                    onClick={this.handleOnClick}
+                >
+                    Show Context Menu
+                </Button>
+            </ButtonToolbar>
+
+            <div>
+                {selectedItem && <ReactJson src={selectedItem}/>}
+            </div>
         </div>;
     }
 }

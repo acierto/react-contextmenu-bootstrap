@@ -13,25 +13,29 @@ export default class DemoApp extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {show: false};
     }
 
     handleActionHandler = (item) => {
         this.setState({selectedItem: item});
     };
 
-    handleOnClick = () => this.setState({items});
+    handleOnClick = () => this.setState({items, show: true});
+
+    closeMenuHandler = () => this.setState({items, show: false});
 
     render() {
-        const {selectedItem} = this.state;
+        const {selectedItem, show} = this.state;
         return <div className="demo-page">
             <ContextMenu
                 actionHandler={this.handleActionHandler}
+                closeMenuHandler={this.closeMenuHandler}
                 filterFlattenSubMenus={filterFlattenSubMenus}
                 itemSelected={R.F}
                 hideContextMenu={R.F}
                 id={'this-context-menu'}
                 items={items}
+                show={show}
                 target={document.getElementById('show-context-menu')}
             />
 

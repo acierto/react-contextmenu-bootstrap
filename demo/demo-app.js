@@ -7,6 +7,8 @@ import {filterFlattenSubMenus} from '../lib/context-menu-service';
 import ContextMenu from '../lib/contextmenu-component';
 import 'bootstrap';
 
+import './demo.less';
+
 export default class DemoApp extends Component {
 
     constructor(props) {
@@ -22,7 +24,7 @@ export default class DemoApp extends Component {
 
     render() {
         const {selectedItem} = this.state;
-        return <div>
+        return <div className="demo-page">
             <ContextMenu
                 actionHandler={this.handleActionHandler}
                 filterFlattenSubMenus={filterFlattenSubMenus}
@@ -33,17 +35,18 @@ export default class DemoApp extends Component {
                 target={document.getElementById('show-context-menu')}
             />
 
-            <ButtonToolbar>
-                <Button
-                    bsStyle="primary"
-                    id="show-context-menu"
-                    onClick={this.handleOnClick}
-                >
-                    Show Context Menu
-                </Button>
-            </ButtonToolbar>
-
-            <div>
+            <div className="control-buttons">
+                <ButtonToolbar>
+                    <Button
+                        bsStyle="primary"
+                        id="show-context-menu"
+                        onClick={this.handleOnClick}
+                    >
+                        Show Context Menu
+                    </Button>
+                </ButtonToolbar>
+            </div>
+            <div className="output-result">
                 {selectedItem && <ReactJson src={selectedItem}/>}
             </div>
         </div>;

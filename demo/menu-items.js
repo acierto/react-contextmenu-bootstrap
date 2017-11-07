@@ -5,6 +5,7 @@ const createSubMenus = (label, from, to, createActionsFunc) => R.map((ind) => ({
     children: createActionsFunc(ind),
     className: `submenu${ind}`,
     label: `${label} ${ind}`,
+    title: `${label} ${ind}`,
     menuClassIcon: 'glyphicon glyphicon-road',
     type: MenuItemTypes.SUBMENU
 }), R.range(from, to));
@@ -14,6 +15,7 @@ const createActions = (label, from, to) => R.map((ind) => ({
     className: `action${ind}`,
     label: `${label} ${ind}`,
     menuClassIcon: 'glyphicon glyphicon-home',
+    title: `${label} ${ind}`,
     type: MenuItemTypes.ACTION
 }), R.range(from, to));
 

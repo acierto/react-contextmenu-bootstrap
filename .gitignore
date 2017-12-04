@@ -1,6 +1,7 @@
 out/
 build/
 node_modules/
+lib/docs/_book/
 npm-debug.log
 # idea
 *.ipr

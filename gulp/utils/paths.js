@@ -1,8 +1,8 @@
 import path from 'path';
 
-const projectDir = path.resolve(__dirname, '..', '..');
+export const projectDir = path.resolve(__dirname, '..', '..');
 export const distDir = 'dist';
-export const projectDist = `${projectDir}/${distDir}`;
+export const docsDemoDir = 'docs/src/demo';
 export const nodeModulesDir = `${projectDir}/node_modules`;
 export const destDocsDir = `${projectDir}/docs`;
 export const srcDocsDir = `${projectDir}/docs/src`;

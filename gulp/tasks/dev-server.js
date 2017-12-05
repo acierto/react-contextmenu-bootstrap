@@ -2,7 +2,7 @@ import gulp from 'gulp';
 import WebpackDevServer from 'webpack-dev-server';
 import webpack from 'webpack';
 import Q from 'q';
-import webpackDevConfig from './webpack/webpack.config.dev';
+import webpackDevConfig from './webpack/webpack.config.demo';
 import webpackTestConfig from './webpack/webpack.config.test';
 import {appPort} from '../utils/connection';
 

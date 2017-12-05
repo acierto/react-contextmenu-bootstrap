@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import runSequence from 'run-sequence';
 
-gulp.task('build-development', (cb) => runSequence('lint', 'webpack-development', cb));
+gulp.task('build-demo', (cb) => runSequence('lint', 'webpack-demo', cb));
 
 gulp.task('build-production', (cb) => runSequence('lint', 'webpack-production', cb));
 

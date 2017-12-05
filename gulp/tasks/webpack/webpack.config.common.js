@@ -1,7 +1,7 @@
 import R from 'ramda';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import {demoDir, distDir, projectDist, srcDir} from '../../utils/paths';
+import {demoDir, projectDir} from '../../utils/paths';
 import {dependencies} from '../../../package.json';
 
 export const exposeLoadersConfig = [
@@ -47,7 +47,7 @@ export const rulesConfig = [
     {
         test: /\.(jpe?g|png|gif|svg|ico)\??.*$/i,
         use: [
-            'file-loader?hash=sha512&digest=hex&name=dist/images/[name]-[hash].[ext]',
+            'file-loader?hash=sha512&digest=hex&name=images/[name]-[hash].[ext]',
             {
                 loader: 'image-webpack-loader?bypassOnDebug',
                 options: {
@@ -57,7 +57,7 @@ export const rulesConfig = [
             }
         ]
     },
-    {loader: 'file-loader?name=dist/fonts/[name].[ext]', test: /\.(ttf|eot|woff)\??.*$/},
+    {loader: 'file-loader?name=fonts/[name].[ext]', test: /\.(ttf|eot|woff)\??.*$/},
     {loader: 'html-loader', test: /\.html$/},
     {
         test: /\.less$/,
@@ -87,7 +87,7 @@ export const pluginsConfig = [
         'window.jQuery': 'jquery'
     }),
     new webpack.optimize.CommonsChunkPlugin({
-        filename: `${distDir}/vendor.bundle-[hash].js`,
+        filename: `vendor.bundle-[hash].js`,
         name: 'vendor'
     }),
     new HtmlWebpackPlugin({
@@ -108,7 +108,7 @@ export const entryConfig = {
 };
 
 export const outputConfig = {
-    filename: `${distDir}/bundle-[hash].js`,
-    path: projectDist,
+    filename: `bundle-[hash].js`,
+    path: projectDir,
     publicPath: ''
 };

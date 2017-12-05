@@ -20,12 +20,12 @@ export default class DemoApp extends Component {
         this.setState({selectedItem: item});
     };
 
-    handleOnClick = () => this.setState({items, show: true});
+    handleOnClick = (event) => this.setState({items, show: !this.state.show, target: event.target});
 
     closeMenuHandler = () => this.setState({items, show: false});
 
     render() {
-        const {selectedItem, show} = this.state;
+        const {selectedItem, show, target} = this.state;
         return <div className="demo-page">
             <div className="control-buttons">
                 <ButtonToolbar>
@@ -34,24 +34,24 @@ export default class DemoApp extends Component {
                         id="show-context-menu"
                         onClick={this.handleOnClick}
                     >
-                        Show Context Menu
+                        {this.state.show ? "Close Context Menu" : "Show Context Menu"}
                     </Button>
+                    <ContextMenu
+                        actionHandler={this.handleActionHandler}
+                        closeMenuHandler={this.closeMenuHandler}
+                        filterFlattenSubMenus={filterFlattenSubMenus}
+                        itemSelected={R.F}
+                        hideContextMenu={R.F}
+                        id={'this-context-menu'}
+                        items={items}
+                        show={show}
+                        target={target}
+                    />
                 </ButtonToolbar>
             </div>
             <div className="output-result">
                 {selectedItem && <ReactJson src={selectedItem}/>}
             </div>
-            <ContextMenu
-                actionHandler={this.handleActionHandler}
-                closeMenuHandler={this.closeMenuHandler}
-                filterFlattenSubMenus={filterFlattenSubMenus}
-                itemSelected={R.F}
-                hideContextMenu={R.F}
-                id={'this-context-menu'}
-                items={items}
-                show={show}
-                target={document.getElementById('show-context-menu')}
-            />
         </div>;
     }
 }

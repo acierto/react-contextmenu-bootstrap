@@ -27,18 +27,6 @@ export default class DemoApp extends Component {
     render() {
         const {selectedItem, show} = this.state;
         return <div className="demo-page">
-            <ContextMenu
-                actionHandler={this.handleActionHandler}
-                closeMenuHandler={this.closeMenuHandler}
-                filterFlattenSubMenus={filterFlattenSubMenus}
-                itemSelected={R.F}
-                hideContextMenu={R.F}
-                id={'this-context-menu'}
-                items={items}
-                show={show}
-                target={document.getElementById('show-context-menu')}
-            />
-
             <div className="control-buttons">
                 <ButtonToolbar>
                     <Button
@@ -53,6 +41,17 @@ export default class DemoApp extends Component {
             <div className="output-result">
                 {selectedItem && <ReactJson src={selectedItem}/>}
             </div>
+            <ContextMenu
+                actionHandler={this.handleActionHandler}
+                closeMenuHandler={this.closeMenuHandler}
+                filterFlattenSubMenus={filterFlattenSubMenus}
+                itemSelected={R.F}
+                hideContextMenu={R.F}
+                id={'this-context-menu'}
+                items={items}
+                show={show}
+                target={document.getElementById('show-context-menu')}
+            />
         </div>;
     }
 }

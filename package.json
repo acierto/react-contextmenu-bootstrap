@@ -106,7 +106,7 @@
     "ramda": "0.25.0",
     "ramdasauce": "2.1.0",
     "react": "15.6.1",
-    "react-bootstrap": "0.31.3",
+    "react-bootstrap": "0.31.5",
     "react-dom": "15.6.1",
     "react-redux": "5.0.6",
     "redux": "3.7.2",

@@ -1,3 +1,5 @@
+# API 
+
 |Name|Type|Required|Description|
 |---|---|---|---|
 |actionHandler|PropTypes.func|false|Triggers when an _Action_ type option in context menu is selected|

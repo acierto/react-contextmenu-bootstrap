@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {Button, ButtonToolbar} from 'react-bootstrap';
 import ReactJson from 'react-json-view';
 import {items} from './menu-items';
-import {filterFlattenSubMenus} from '../lib/context-menu-service';
+import {composeMenu} from '../lib/context-menu-service';
 import ContextMenu from '../lib/contextmenu-component';
 import 'bootstrap';
 
@@ -39,10 +39,7 @@ export default class DemoApp extends Component {
                     <ContextMenu
                         actionHandler={this.handleActionHandler}
                         closeMenuHandler={this.closeMenuHandler}
-                        filterFlattenSubMenus={filterFlattenSubMenus}
-                        itemSelected={R.F}
-                        hideContextMenu={R.F}
-                        id={'this-context-menu'}
+                        composeMenu={composeMenu}
                         items={items}
                         show={show}
                         target={target}

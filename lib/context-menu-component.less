@@ -12,81 +12,90 @@
     position: relative;
   }
 
-  .dropdown-menu.active {
-    display: block;
-  }
+  .dropdown-menu {
+    margin: 0;
+    padding: 0;
 
-  .dropdown-menu > li {
-    width: 197px;
-    a {
-      overflow-x: hidden;
-      padding: 3px 10px;
-      position: relative;
-      text-overflow: ellipsis;
-      width: 195px;
+    &.active {
+      display: block;
+    }
 
-      .menu-item-icon {
-        display: inline-block;
-        height: 16px;
-        margin-right: 5px;
+    .divider {
+      margin: 0;
+    }
+
+    > li {
+      width: 197px;
+      a {
+        overflow-x: hidden;
+        padding: 3px 10px;
         position: relative;
-        top: -3px;
-        width: 16px;
+        text-overflow: ellipsis;
+        width: 195px;
 
-        &.no-icons-present {
-          display: none;
+        .menu-item-icon {
+          display: inline-block;
+          height: 16px;
+          margin-right: 5px;
+          position: relative;
+          width: 16px;
+
+          &.no-icons-present {
+            display: none;
+          }
+        }
+
+        .menu-item-label {
+          display: inline-block;
+          overflow: hidden;
+          position: relative;
+          text-overflow: ellipsis;
+          top: 4px;
+          white-space: nowrap;
+          width: 152px;
         }
       }
 
-      .menu-item-label {
-        display: inline-block;
-        overflow: hidden;
-        position: relative;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        width: 152px;
+      &:focus,
+      &:hover,
+      & > a:focus,
+      & > a:hover {
+        outline: none;
+      }
+
+      &:not(.disabled):focus,
+      &:not(.disabled):hover,
+      &:not(.disabled) > a:focus,
+      &:not(.disabled) > a:hover {
+        background: #d7efff none;
+      }
+
+      &.disabled {
+        background: transparent;
+        pointer-events: none;
       }
     }
 
-    &:focus,
-    &:hover,
-    & > a:focus,
-    & > a:hover {
-      outline: none;
+    .dropdown-submenu:hover > .dropdown-menu {
+      display: block;
     }
 
-    &:not(.disabled):focus,
-    &:not(.disabled):hover,
-    &:not(.disabled) > a:focus,
-    &:not(.disabled) > a:hover {
-      background: #d7efff none;
+    .dropdown-submenu > a:after {
+      border: 5px solid transparent;
+      border-left-color: #ccc;
+      border-right-width: 0;
+      bottom: 0;
+      content: " ";
+      display: block;
+      height: 0;
+      margin: auto;
+      position: absolute;
+      right: 10px;
+      top: 0;
     }
-  }
 
-  .dropdown-menu > li.disabled {
-    background: transparent;
-    pointer-events: none;
-  }
-
-  .dropdown-submenu:hover > .dropdown-menu {
-    display: block;
-  }
-
-  .dropdown-submenu > a:after {
-    border: 5px solid transparent;
-    border-left-color: #ccc;
-    border-right-width: 0;
-    bottom: 0;
-    content: " ";
-    display: block;
-    height: 0;
-    margin: auto;
-    position: absolute;
-    right: 10px;
-    top: 0;
-  }
-
-  .dropdown-submenu:hover > a:after {
-    border-left-color: #ffffff;
+    .dropdown-submenu:hover > a:after {
+      border-left-color: #ffffff;
+    }
   }
 }

@@ -20,6 +20,6 @@
 |---|---|---|---|
 |actionHandler|PropTypes.func|true|Triggers when an _Action_ type option in context menu is selected|
 |item|Item shape|true|Contains all data about the context menu item|
-|menuIconLabel|PropTypes.string|true||
+|menuIconLabelClass|PropTypes.string|true||
 |path|PropTypes.array|true||
 |symbolicPath|PropTypes.array|true||

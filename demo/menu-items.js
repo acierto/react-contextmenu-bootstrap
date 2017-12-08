@@ -6,23 +6,24 @@ const createSubMenus = (label, from, to, createActionsFunc) => R.map((ind) => ({
     className: `submenu${ind}`,
     label: `${label} ${ind}`,
     title: `${label} ${ind}`,
-    menuClassIcon: 'glyphicon glyphicon-road',
+    menuIconClass: 'glyphicon glyphicon-road',
     type: MenuItemTypes.SUBMENU
 }), R.range(from, to));
 
 const createActions = (label, from, to) => R.map((ind) => ({
-    action: `Action_${ind}`,
     className: `action${ind}`,
     label: `${label} ${ind}`,
-    menuClassIcon: 'glyphicon glyphicon-home',
+    menuIconClass: 'glyphicon glyphicon-home',
+    params: {action: `Action_${ind}`},
     title: `${label} ${ind}`,
     type: MenuItemTypes.ACTION
 }), R.range(from, to));
 
 const createUrls = (label, from, to) => R.map((ind) => ({
     className: `url${ind}`,
+    hrefTarget: '_blank',
     label: `${label} ${ind}`,
-    menuClassIcon: 'glyphicon glyphicon-new-window',
+    menuIconClass: 'glyphicon glyphicon-new-window',
     target: '_blank',
     type: MenuItemTypes.URL,
     url: 'http://www.google.com'

@@ -2647,7 +2647,7 @@ var _classnames2 = _interopRequireDefault(_classnames);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var menuIconLabelClass = exports.menuIconLabelClass = function menuIconLabelClass(items) {
-    var noIconsPresent = (0, _and2.default)((0, _all2.default)((0, _propSatisfies2.default)(_isNil2.default, 'menuIcon')), (0, _all2.default)((0, _propSatisfies2.default)(_isNil2.default, 'menuClassIcon')))(items);
+    var noIconsPresent = (0, _and2.default)((0, _all2.default)((0, _propSatisfies2.default)(_isNil2.default, 'menuIcon')), (0, _all2.default)((0, _propSatisfies2.default)(_isNil2.default, 'menuIconClass')))(items);
 
     return (0, _classnames2.default)({ 'menu-item-label': !noIconsPresent });
 };
@@ -3349,13 +3349,13 @@ var MenuIcon = function (_Component) {
         key: 'render',
         value: function render() {
             var _props$item = this.props.item,
-                menuClassIcon = _props$item.menuClassIcon,
+                menuIconClass = _props$item.menuIconClass,
                 menuIcon = _props$item.menuIcon;
 
             if (menuIcon) {
                 return _react2.default.createElement('img', { className: 'menu-item-icon', src: menuIcon });
-            } else if (menuClassIcon) {
-                return _react2.default.createElement('span', { className: (0, _classnames2.default)('menu-item-icon', menuClassIcon) });
+            } else if (menuIconClass) {
+                return _react2.default.createElement('span', { className: (0, _classnames2.default)('menu-item-icon', menuIconClass) });
             }
             return _react2.default.createElement('span', { className: 'menu-item-icon no-icons-present' });
         }
@@ -3365,7 +3365,7 @@ var MenuIcon = function (_Component) {
 
 MenuIcon.propTypes = {
     item: _propTypes2.default.shape({
-        menuClassIcon: _propTypes2.default.string,
+        menuIconClass: _propTypes2.default.string,
         menuIcon: _propTypes2.default.string
     }).isRequired
 };
@@ -19179,7 +19179,7 @@ var createSubMenus = function createSubMenus(label, from, to, createActionsFunc)
             className: 'submenu' + ind,
             label: label + ' ' + ind,
             title: label + ' ' + ind,
-            menuClassIcon: 'glyphicon glyphicon-road',
+            menuIconClass: 'glyphicon glyphicon-road',
             type: _contextMenuTypes.MenuItemTypes.SUBMENU
         };
     }, (0, _range2.default)(from, to));
@@ -19191,7 +19191,7 @@ var createActions = function createActions(label, from, to) {
             action: 'Action_' + ind,
             className: 'action' + ind,
             label: label + ' ' + ind,
-            menuClassIcon: 'glyphicon glyphicon-home',
+            menuIconClass: 'glyphicon glyphicon-home',
             title: label + ' ' + ind,
             type: _contextMenuTypes.MenuItemTypes.ACTION
         };
@@ -19203,7 +19203,7 @@ var createUrls = function createUrls(label, from, to) {
         return {
             className: 'url' + ind,
             label: label + ' ' + ind,
-            menuClassIcon: 'glyphicon glyphicon-new-window',
+            menuIconClass: 'glyphicon glyphicon-new-window',
             target: '_blank',
             type: _contextMenuTypes.MenuItemTypes.URL,
             url: 'http://www.google.com'
